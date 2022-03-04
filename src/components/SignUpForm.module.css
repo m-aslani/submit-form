@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  flex-direction: column;
+}
+
+.form_container {
+  border: solid 1px silver;
+  width: fit-content;
+  height: fit-content;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.header {
+  text-align: left;
+  color: rgb(63, 63, 231);
+  font-size: 1.8rem;
+}
+
+.formField {
+  display: flex;
+  height: 75px;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.formField label {
+  text-align: left;
+  margin-bottom: 5px;
+  color: rgb(48, 48, 48);
+  font-size: 0.9rem;
+}
+
+.formInput {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  border: 1px silver solid;
+  transition: all 0.2s ease-in;
+}
+
+.uncomplete {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  border: 1px red solid;
+  transition: all 0.2s ease-in;
+}
+
+.formInput:focus,
+.uncomplete:focus {
+  outline: none;
+  line-height: 30px;
+  height: 30px;
+  border: 1px solid rgb(76, 76, 236);
+}
+
+.formField span {
+  height: 10px;
+  text-align: left;
+  margin-top: 5px;
+  width: fit-content;
+  font-size: 0.7rem;
+  color: red;
+  line-height: 10px;
+  padding: 2px 3px;
+  border-radius: 3px;
+}
+
+.checkBoxContainer {
+  display: flex;
+  font-size: 0.85rem;
+  flex-direction: row !important;
+  align-items: center;
+  height: 20px !important;
+  text-align: center;
+}
+
+.formField:nth-child(6) label {
+  color: rgb(76, 76, 236);
+}
+
+input[type="checkbox"] {
+  margin-left: 20px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgb(76, 76, 236);
+  border-radius: 5px;
+  appearance: none;
+  transition: all 0.2s ease-in;
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgb(76, 76, 236);
+}
+
+.formButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formButton button {
+  background-color: rgb(90, 90, 250);
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all ease-in 0.1s;
+}
+
+.formButton button:hover {
+  background-color: rgb(51, 51, 253);
+}
+
+.formButton a {
+  color: rgb(90, 90, 250);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all ease-in 0.1s;
+}
+
+.formButton a:hover {
+ color: rgb(2, 2, 248);
+}
+
+@media (max-width: 440px) {
+  .form_container {
+    margin: 50px 20px;
+    padding: 20px;
+    width: 90%;
+  }
+  .formInput {
+    width: 90%;
+  }
+  .uncomplete {
+    width: 90%;
+  }
+}
