@@ -3,28 +3,22 @@ import { validate } from "../utils/validation";
 import styles from "./SignUpForm.module.css";
 import {Link} from "react-router-dom";
 
-const SignUpForm = () => {
+
+const LoginForm = () => {
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: "",
-    checkPassword: "",
-    isChecked: false,
   });
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   useEffect(() => {
-    setErrors(validate(data , "signup"));
+    setErrors(validate(data , "login"));
   }, [data]);
 
   const changeHandler = (evant) => {
-    if (evant.target.name === "isChecked") {
-      setData({ ...data, [evant.target.name]: evant.target.isChecked });
-    } else {
       setData({ ...data, [evant.target.name]: evant.target.value });
-    }
   };
 
   const touchHandler = (evant) => {
@@ -35,30 +29,16 @@ const SignUpForm = () => {
     evant.preventDefault();
     if (Object.keys(errors).length)
       setTouched({
-        name: true,
         email: true,
         password: true,
-        checkPassword: true,
-        isChecked: true,
       });
   };
 
   return (
     <div className={styles.container}>
       <form className={styles.form_container} onSubmit={submitHandler}>
-      <h2 className={styles.header}>Sign Up</h2>
-      <div className={styles.formField}>
-        <label>Name</label>
-        <input
-        className={(errors.name && touched.name) ? styles.uncomplete : styles.formInput}          
-          type="text"
-          name="name"
-          value={data.name}
-          onChange={changeHandler}
-          onFocus={touchHandler}
-        />
-        {errors.name && touched.name && <span>{errors.name}</span>}
-      </div>
+      <h2 className={styles.header}>Login</h2>
+     
       <div  className={styles.formField}>
         <label>E-mail</label>
         <input
@@ -83,37 +63,9 @@ const SignUpForm = () => {
         />
         {errors.password && touched.password && <span>{errors.password}</span>}
       </div>
-      <div  className={styles.formField}>
-        <label>Confirm Password</label>
-        <input
-        className={(errors.checkPassword && touched.checkPassword) ? styles.uncomplete : styles.formInput}
-          type="password"
-          name="checkPassword"
-          value={data.checkPassword}
-          onChange={changeHandler}
-          onFocus={touchHandler}
-        />
-        {errors.checkPassword && touched.checkPassword && (
-          <span>{errors.checkPassword}</span>
-        )}
-      </div>
-      <div  className={styles.formField}>
-        <div className={styles.checkBoxContainer}>
-        <label>I accepted all terms of privacy policy</label>
-        <input
-          type="checkbox"
-          name="isChecked"
-          value={data.isChecked}
-          onChange={changeHandler}
-          onFocus={touchHandler}
-        />
-        </div>
-        {errors.isChecked && touched.isChecked && (
-          <span>{errors.isChecked}</span>
-        )}
-      </div>
+     
       <div className={styles.formButton}>
-        <Link to="/login">login</Link>
+        <Link to="/signup">sign up</Link>
         <button type="submit" >
           submit
         </button>
@@ -123,4 +75,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default LoginForm;
